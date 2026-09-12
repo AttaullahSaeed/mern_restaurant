@@ -1,9 +1,12 @@
 import mongoose from "mongoose";
-export const connectDB=async(req,res)=>{
-   try{
-      await mongoose.connect(process.env.MONGO_URL);
-      console.log("Database connected")
-   }catch(error){
-console.log(`error in connecting database ${error}`)
-   }
-}
+import dns from "node:dns";
+
+dns.setServers(["8.8.8.8", "1.1.1.1"]);
+export const connectDB = async (req, res) => {
+  try {
+    await mongoose.connect(process.env.MONGO_URL);
+    console.log("Database connected");
+  } catch (error) {
+    console.log(`error in connecting database ${error}`);
+  }
+};

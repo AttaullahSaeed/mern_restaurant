@@ -19,9 +19,9 @@ connectCloudinary();
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://resturant-app-peach.vercel.app",
+    origin: "http://localhost:5173",
     credentials: true,
-  })
+  }),
 );
 app.use(cookieParser());
 const PORT = process.env.PORT || 5000;
@@ -34,6 +34,7 @@ app.use("/api/menu", menuRoutes);
 app.use("/api/cart", cartRoutes);
 app.use("/api/order", orderRoutes);
 app.use("/api/booking", bookingRoutes);
+
 app.listen(PORT, () => {
   console.log(`server is running on port ${PORT}`);
 });
